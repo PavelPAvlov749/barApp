@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/barApp/static/css/main.733a5d64.css",
+    "main.js": "/barApp/static/js/main.4f2b583a.js",
+    "static/js/787.e0bc9558.chunk.js": "/barApp/static/js/787.e0bc9558.chunk.js",
+    "index.html": "/barApp/index.html",
+    "main.733a5d64.css.map": "/barApp/static/css/main.733a5d64.css.map",
+    "main.4f2b583a.js.map": "/barApp/static/js/main.4f2b583a.js.map",
+    "787.e0bc9558.chunk.js.map": "/barApp/static/js/787.e0bc9558.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.733a5d64.css",
+    "static/js/main.4f2b583a.js"
+  ]
+}
