@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+ background-color: rgb(203, 203, 203);
+ color: rgb(111, 110, 110);
+ position: fixed;
+ overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+}
+
