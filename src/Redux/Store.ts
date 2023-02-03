@@ -2,6 +2,8 @@ import {applyMiddleware,combineReducers} from "redux";
 import { legacy_createStore as createStore} from 'redux'
 import thunk from "redux-thunk";
 import { compose } from "redux";
+import { productReducer } from "./productReducer";
+import { appReducer } from "./appReducer";
 
 
 
@@ -9,7 +11,8 @@ import { compose } from "redux";
 
 
 let reducers = combineReducers({
-
+    prdouctReducer : productReducer,
+    appReducer : appReducer
 })
 
 type PropertieTypes<T> = T extends {[key:string]:infer U} ? U : never;
