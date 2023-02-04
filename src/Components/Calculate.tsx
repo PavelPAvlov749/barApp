@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { productType } from "../ProductModel/productModel";
 import { Global_state_type } from "../Redux/Store";
+import styles from "../Styles/Calculate.module.css"
+
 
 export const ProductCard = () => {
     const dispatch = useDispatch()
@@ -11,12 +13,12 @@ export const ProductCard = () => {
     const [showDescription,setShow] = useState(false)
     const [showComposition,setShowComposition] = useState(false)
     let [value,setValue] = useState(0)
-    let calculated = JSON.stringify(currentProduct?.calculate(Number(value)))
+    let calculated = currentProduct?.calculate(Number(value))
     const calculate = (e : any) => {
         setValue(e.currentTarget.value)
     }
     return (
-        <section>
+        <section className={styles.calculateContainer}>
 
             <h1>{currentProduct?.name}</h1>
             <button onClick={() => {
@@ -36,7 +38,18 @@ export const ProductCard = () => {
             {showComposition ? <p>{JSON.stringify(currentProduct?.composition)}</p> : null}
             <h2>Calculate</h2>
             <input type="text" placeholder="How much we need?" onChange={calculate}></input>
-            {calculated}
+            <br />
+            {Object.keys(calculated as {}).map((el : string,index:number) => {
+                return (
+                    <>
+                    
+                    <span className={styles.result}>{el + " : " + Object.values(calculated as {})[index]}</span>
+               
+                  
+                    <br />
+                    </>
+                )
+            })  }
         </section>
     )
 }

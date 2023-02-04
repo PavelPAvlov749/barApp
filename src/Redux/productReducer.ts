@@ -7,11 +7,20 @@ const SET_PRODUCTS = "barApp/productReducer/setProducts"
 const ADD_PRODUCT = "barApp/productReducer/addProduct"
 const REMOVE_PRODUCT = "barApp/productReducer/removeProduct"
 const ADD_TO_SELECTED = "barApp/productReducer/addToSelected"
+const SET_IS_READY = "barApp/priductReducer/setIsReady"
 
+export type selectedType = {
+    name : string,
+    description : string,
+    composition : {},
+    calculate : (val : number) => {},
+    isReady : boolean,
+    id : string
+}
 
 type initial_state_type = {
     products : productType[],
-    selected : productType[],
+    selected : selectedType[],
     newProduct : productType | null,
     
 }
@@ -30,8 +39,8 @@ export const productReducer = (state = initial_state, action: Action_Type) => {
         case ADD_TO_SELECTED : {
             return {
                 ...state,
-                selected : state.selected.find((el : productType) => el.name === action.payload.name)? 
-                    state.selected.filter((el:productType) => el.name !== action.payload.name): state.selected.concat(action.payload)
+                selected : state.selected.find((el : selectedType) => el.name === action.payload.name)? 
+                    state.selected.filter((el: selectedType) => el.name !== action.payload.name): state.selected.concat({...action.payload,isReady : false})
             }
         }
         case SET_PRODUCTS : {
@@ -47,6 +56,12 @@ export const productReducer = (state = initial_state, action: Action_Type) => {
             return {
                 ...state,
                 products  :state.products.concat(action.payload)
+            }
+        }
+        case SET_IS_READY : {
+            return {
+                ...state,
+                selected : state.selected
             }
         }
         default:
@@ -70,7 +85,11 @@ export const product_actions = {
   addToSelected : (product : productType) => ({
     type : "barApp/productReducer/addToSelected",
     payload : product
-  } as const )
+  } as const ),
+  setIsReady : (id : string) => ({
+    type : "barApp/priductReducer/setIsReady",
+    payload : id
+  } as const)
 
 }
 

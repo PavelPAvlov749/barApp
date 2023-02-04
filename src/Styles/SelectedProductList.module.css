@@ -1,0 +1,31 @@
+.selectedProductsContainer{
+  
+    color: rgb(67, 67, 67);
+    text-align: left;
+    padding: 10px;
+}
+.status {
+    height: 1rem;
+    margin-bottom: 20px;
+}
+.readyOf{
+    position: fixed;
+    left: 10px;
+    top: 10px;
+}
+.percent{
+    position: fixed;
+    top : 10px;
+    right: 10px;
+}
+.selectedProductsContainer a {
+    text-decoration: none;
+    color: rgb(67, 67, 67);
+    font-size: x-large;
+}
+.selectedProductsContainer input {
+    position: fixed;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+}
