@@ -29,5 +29,71 @@ export const Products : productType[] = [
                 lemon_acid : val * 40
             }
         }
+    },
+    {
+        name : "Amber mix",
+        description : "wfefwef",
+        composition : {
+            apple_juice : 500,
+            simple_syryp : 250,
+            lemon_acid : 40
+        },
+        id : "ambermix",
+        calculate : (val : number) => {
+            return {
+                apple_juice : val * 500,
+                simple_syryp : val * 250,
+                lemon_acid : val * 40
+            }
+        }
+    },
+    {
+        name : "Kinoto Cordial",
+        description : "wfefwef",
+        composition : {
+            apple_juice : 500,
+            simple_syryp : 250,
+            lemon_acid : 40
+        },
+        id : "kinotocord",
+        calculate : (val : number) => {
+            return {
+                apple_juice : val * 500,
+                simple_syryp : val * 250,
+                lemon_acid : val * 40
+            }
+        }
+    },    {
+        name : "Ginger Cordial",
+        description : "Имбирь почистить,порезать,сешать все компоненты в блендере,отфильровать",
+        composition : {
+            apple_juice : 500,
+            simple_syryp : 250,
+            lemon_acid : 40
+        },
+        id : "gingercord",
+        calculate : (val : number) => {
+            return {
+                apple_juice : val * 500,
+                simple_syryp : val * 250,
+                lemon_acid : val * 40
+            }
+        }
+    },    {
+        name : "Basil Cordial",
+        description : "wfefwef",
+        composition : {
+            apple_juice : 500,
+            simple_syryp : 250,
+            lemon_acid : 40
+        },
+        id : "basilecord",
+        calculate : (val : number) => {
+            return {
+                apple_juice : val * 500,
+                simple_syryp : val * 250,
+                lemon_acid : val * 40
+            }
+        }
     }
 ]

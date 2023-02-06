@@ -1,4 +1,5 @@
 import { stat } from "fs";
+import { act } from "react-dom/test-utils";
 import { Products, productType } from "../ProductModel/productModel";
 import { InferActionType } from "./Store";
 
@@ -7,7 +8,7 @@ const SET_PRODUCTS = "barApp/productReducer/setProducts"
 const ADD_PRODUCT = "barApp/productReducer/addProduct"
 const REMOVE_PRODUCT = "barApp/productReducer/removeProduct"
 const ADD_TO_SELECTED = "barApp/productReducer/addToSelected"
-const SET_IS_READY = "barApp/priductReducer/setIsReady"
+const ADD_TO_READY = "barApp/priductReducer/addToReady"
 
 export type selectedType = {
     name : string,
@@ -22,13 +23,14 @@ type initial_state_type = {
     products : productType[],
     selected : selectedType[],
     newProduct : productType | null,
-    
+    ready : productType[]
 }
 
 let initial_state : initial_state_type = {
     products : Products,
     selected : [],
-    newProduct : null
+    newProduct : null,
+    ready : []
 }
 
 //Acrtion types
@@ -58,10 +60,10 @@ export const productReducer = (state = initial_state, action: Action_Type) => {
                 products  :state.products.concat(action.payload)
             }
         }
-        case SET_IS_READY : {
+        case ADD_TO_READY : {
             return {
                 ...state,
-                selected : state.selected
+                ready : state.ready.concat(action.payload)
             }
         }
         default:
@@ -86,9 +88,9 @@ export const product_actions = {
     type : "barApp/productReducer/addToSelected",
     payload : product
   } as const ),
-  setIsReady : (id : string) => ({
-    type : "barApp/priductReducer/setIsReady",
-    payload : id
+  addToReady : (mix: productType) => ({
+    type : "barApp/priductReducer/addToReady",
+    payload : mix
   } as const)
 
 }

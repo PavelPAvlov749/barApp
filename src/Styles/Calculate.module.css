@@ -1,6 +1,6 @@
 .calculateContainer {
     padding: 5px;
-    
+    color: rgb(67, 67, 67);
 }
 .calculateContainer  {
     text-align: left;
@@ -12,18 +12,67 @@
     border: none;
     border-radius: 5px;
     margin-bottom: 5px;
+    background-color: rgb(155, 155, 155);
+    color: white;
+ 
+}
+button:active{
+    transform: scale(1,1);
+    animation: btnScale 1s forwards;
+}
+@keyframes btnScale {
+    0%{
+        transform: scale(0.95,0.95);
+    }
+    50%{
+        transform: scale(1.05,1.05);
+    }
+    100%{
+        transform: scale(1,1);
+    }
 }
 .calculateContainer input{
-    width: 99%;
+    width: 98%;
     height: 2rem;
     font-size: large;
     border: none;
     border-radius: 5px;
     margin-bottom: 5px;
+    border: 2px solid grey;
     
 }
 
 .result{
     font-size: x-large;
     margin-bottom: 1rem;
+}
+
+.calculateContainer {
+    transform: translateX(100%);
+    animation: side 0.6s forwards;
+}
+@keyframes side {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+.calculateContainer p {
+    font-size: large;
+    transform: translateY(-100%);
+    animation: dropdown 0.7s forwards;
+}
+
+
+@keyframes dropdown {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }

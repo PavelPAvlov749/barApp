@@ -1,0 +1,36 @@
+.priductListPAge{
+    padding: 10px;
+  
+}
+.productListContainer{
+    position: fixed;
+    top: 3rem;
+    width: 100%;
+    font-size: x-large;
+    text-align: left;
+    color: rgb(93, 92, 92);
+}
+.search{
+    font-size: large;
+    color: rgb(93, 92, 92);
+    position: fixed;
+    top: 5px;
+    left: 1%;
+    width: 96%;
+    height: 2rem;
+    border-radius: 5px;
+    border-style: 1px rgb(50, 49, 49);
+    border-width: thin;    
+
+}
+.element{
+    margin-bottom: 0.7rem;
+}
+
+.checkBox{
+    position:absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
