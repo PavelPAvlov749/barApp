@@ -5,7 +5,7 @@ import style from "../Styles/Navbar.module.css"
 import home from "../Assets/home.png"
 import list from "../Assets/list.png"
 import document from "../Assets/document.png"
-import add from "../Assets/add.png"
+import add from "../Assets/plus.png"
 
 export const Navbar = React.memo(() => {
     return (

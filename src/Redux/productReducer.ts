@@ -1,5 +1,3 @@
-import { stat } from "fs";
-import { act } from "react-dom/test-utils";
 import { Products, productType } from "../ProductModel/productModel";
 import { InferActionType } from "./Store";
 
@@ -9,6 +7,10 @@ const ADD_PRODUCT = "barApp/productReducer/addProduct"
 const REMOVE_PRODUCT = "barApp/productReducer/removeProduct"
 const ADD_TO_SELECTED = "barApp/productReducer/addToSelected"
 const ADD_TO_READY = "barApp/priductReducer/addToReady"
+const SET_SHIFT_REPORT = "barApp/productReducer/setReport"
+const CLEAR_SELECTED = "barApp/productReducer/clearSelected"
+const SET_SELECTED = "barApp/productReducer/setSelectrd"
+const CLEAR_READY = "barApp/producrReducer/clearReady"
 
 export type selectedType = {
     name : string,
@@ -23,14 +25,22 @@ type initial_state_type = {
     products : productType[],
     selected : selectedType[],
     newProduct : productType | null,
-    ready : productType[]
+    ready : productType[],
+    shiftReport : {
+        name : string,
+        date : string,
+        products : productType[]
+    } | null
+
 }
 
 let initial_state : initial_state_type = {
     products : Products,
     selected : [],
     newProduct : null,
-    ready : []
+    ready : [],
+    shiftReport : null
+
 }
 
 //Acrtion types
@@ -43,6 +53,12 @@ export const productReducer = (state = initial_state, action: Action_Type) => {
                 ...state,
                 selected : state.selected.find((el : selectedType) => el.name === action.payload.name)? 
                     state.selected.filter((el: selectedType) => el.name !== action.payload.name): state.selected.concat({...action.payload,isReady : false})
+            }
+        }
+        case CLEAR_SELECTED : {
+            return {
+                ...state,
+                selected : []
             }
         }
         case SET_PRODUCTS : {
@@ -64,6 +80,24 @@ export const productReducer = (state = initial_state, action: Action_Type) => {
             return {
                 ...state,
                 ready : state.ready.concat(action.payload)
+            }
+        }
+        case SET_SHIFT_REPORT : {
+            return {
+                ...state,
+                shiftReport : action.payload
+            }
+        }
+        case SET_SELECTED : {
+            return {
+                ...state,
+                selected : action.payload
+            }
+        }
+        case CLEAR_READY : {
+            return {
+                ...state,
+                ready : []
             }
         }
         default:
@@ -91,7 +125,22 @@ export const product_actions = {
   addToReady : (mix: productType) => ({
     type : "barApp/priductReducer/addToReady",
     payload : mix
-  } as const)
+  } as const),
+  setReport : (report : {name : string,date : string,products : productType[]}) => ({
+    type : "barApp/productReducer/setReport",
+    payload : report
+  } as const ),
+  clear : () => ({
+    type : "barApp/productReducer/clearSelected"
+  } as const ),
+  setDelected : (el : selectedType[]) => ({
+    type : "barApp/productReducer/setSelectrd",
+    payload : el
+   } as const ),
+   clearSelected : () => ({
+    type : "barApp/producrReducer/clearReady",
+
+   } as const )
 
 }
 

@@ -1,0 +1,21 @@
+.container {
+    text-align: center;
+    transform: translateX(100%);
+    animation: pageSlide 1s forwards;
+}
+.container h1{
+
+}
+.container img {
+    margin-top: calc(50% - 100px);
+    width: 120px;
+    height: 120px;
+}
+@keyframes pageSlide {
+    0%{
+        transform:translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}

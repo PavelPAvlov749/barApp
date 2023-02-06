@@ -4,6 +4,7 @@ import thunk from "redux-thunk";
 import { compose } from "redux";
 import { productReducer } from "./productReducer";
 import { appReducer } from "./appReducer";
+import { searchReducer } from "./SearchReduxer";
 
 
 
@@ -12,7 +13,8 @@ import { appReducer } from "./appReducer";
 
 let reducers = combineReducers({
     prdouctReducer : productReducer,
-    appReducer : appReducer
+    appReducer : appReducer,
+    search : searchReducer
 })
 
 type PropertieTypes<T> = T extends {[key:string]:infer U} ? U : never;

@@ -1,20 +1,37 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Global_state_type } from "../Redux/Store";
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Global_state_type } from "../Redux/Store"
 import nothung from "../Assets/nothing.png"
 import { productType } from "../ProductModel/productModel";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom"
 import styles from "../Styles/SelectedProductList.module.css"
-import { product_actions, selectedType } from "../Redux/productReducer";
-import { match } from "assert";
+import { product_actions, selectedType } from "../Redux/productReducer"
+import useLocalStorage from "use-local-storage"
+import { TelegramAPI } from "../BotAPI/AxiosConfig";
 
 
 export const Selected = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+    useEffect(() => {
+        let item = localStorage.getItem("products")
+        if(item){
+            dispatch(product_actions.setDelected(JSON.parse(item)))
+        }
+
+    },[])
     const products = useSelector((state : Global_state_type) => state.prdouctReducer.selected)
     const readyProducts = useSelector((state : Global_state_type ) => state.prdouctReducer.ready)
     let onClickHandler = (el : productType) => {
         dispatch(product_actions.addToReady(el))
+    }
+   
+    const endShift = () => {
+        dispatch(product_actions.clear())
+        dispatch(product_actions.clearSelected())
+        localStorage.clear()
+        navigate("/done")
+        TelegramAPI.sendMessage()
     }
 
     if(products.length > 0){
@@ -24,7 +41,7 @@ export const Selected = () => {
                 <span className={styles.readyOf}>{readyProducts.length + " / " + products.length}</span>
                 <span className={styles.percent}>{(100 / products.length) *  Number(readyProducts.length.toFixed(2)) + "%"}</span>
             </section>
-            {products.map((el : selectedType) => {
+            {products.map((el : productType) => {
                 return(
                     <div className={styles.elemnt}>
                     <NavLink to={"/product/id=" + el.id}>
@@ -41,7 +58,7 @@ export const Selected = () => {
                     </div>
                 )
             })}
-             <button className={styles.endShift}>Завершить смену</button>
+             <button className={styles.endShift} onClick={endShift}  >Завершить смену</button>
         </section>
     )}else{
         return(
