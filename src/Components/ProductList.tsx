@@ -43,7 +43,7 @@ export const ProductList = () => {
                 {findedProducts.length > 0 ? findedProducts.map((el: productType) => {
                     return (
                         <div className={styles.element}>
-                            <span>{el.name}</span>
+                            <span>{el.name.includes("_") ? el.name.split("_")[0] + " " + el.name.split("_")[1] : el.name    }</span>
                             <input className={styles.checkBox} type="checkbox" onChange={() => {
                                 onChange(el)
                             }}></input>
@@ -54,7 +54,7 @@ export const ProductList = () => {
                 }): products.map((el: productType) => {
                     return (
                         <div className={styles.element}>
-                            <span>{el.name}</span>
+                            <span>{el.name.includes("_") ? el.name.split("_")[0] + " " + el.name.split("_")[1] : el.name  }</span>
                             <input className={styles.checkBox} type="checkbox" onChange={() => {
                                 onChange(el)
                             }}></input>

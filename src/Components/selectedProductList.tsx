@@ -42,10 +42,12 @@ export const Selected = () => {
                 <span className={styles.percent}>{(100 / products.length) *  Number(readyProducts.length.toFixed(2)) + "%"}</span>
             </section>
             {products.map((el : productType) => {
+               
+                
                 return(
                     <div className={styles.elemnt}>
                     <NavLink to={"/product/id=" + el.id}>
-                        <span>{el.name}</span>
+                        <span>{el.name.includes("_") ? el.name.split("_")[0] + " " + el.name.split("_")[1] : el.name}</span>
                     </NavLink>
                     <input type="checkbox" disabled={readyProducts.length === products.length} onClick={() => {
                         if(readyProducts.length <= products.length){

@@ -17,6 +17,7 @@ export const ProductCard = () => {
     const calculate = (e : any) => {
         setValue(e.currentTarget.value)
     }
+    let current = JSON.stringify(currentProduct?.composition).split(",")
     return (
         <section className={styles.calculateContainer}>
 
@@ -35,7 +36,7 @@ export const ProductCard = () => {
                 }else{
                     setShowComposition(true)
                     }}}>Composition</button>
-            {showComposition ? <p>{JSON.stringify(currentProduct?.composition)}</p> : null}
+            {showComposition ? current.map((el) => {return <><span>{el}</span><br /></>}) : null}
             <h2>Calculate</h2>
             <input type="text" placeholder="How much we need?" onChange={calculate}></input>
             <br />
@@ -43,9 +44,9 @@ export const ProductCard = () => {
                 return (
                     <>
                     
-                    <span className={styles.result}>{el + " : " + Object.values(calculated as {})[index]}</span>
+                    <span className={styles.result}>{el.includes("_") ? el.split("_")[0] + " " + el.split("_")[1] : 
+                    el + " : " + Object.values(calculated as {})[index]}</span>
                
-                  
                     <br />
                     </>
                 )
