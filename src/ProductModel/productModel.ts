@@ -14,7 +14,7 @@ export type productType = {
 
 export const Products: productType[] = [
     {
-        name: "Apple Cordial",
+        name: "Яблочный Кордиал",
         description: "Все ингредиенты размешать до однородной консистенции. Разлить поемкостям. Запас хранить в вакуумных пакетах в холодильнике",
         composition: {
             Яблочный_сок: 1000,
@@ -25,10 +25,10 @@ export const Products: productType[] = [
         id: "applecord",
         calculate: (val: number) => {
             return {
-                Яблочный_сок: val * 1000,
-                Сахарный_сироп: val * 500,
-                Лимонная_кислота: val * 40,
-                Соль: 3
+                ЯблочныйСок: val * 1000,
+                Симпл: val * 500,
+                ЛК: val * 40,
+                Соль: 3 * val
             }
         }
     },
@@ -54,7 +54,7 @@ export const Products: productType[] = [
         }
     },
     {
-        name: "Kinoto Cordial",
+        name: "Киното Кордиал",
         description: "wfefwef",
         composition: {
             apple_juice: 500,
@@ -70,7 +70,7 @@ export const Products: productType[] = [
             }
         }
     }, {
-        name: "Ginger Cordial",
+        name: "Имбирный Кордиал",
         description: "Имбирь хорошо помыть, почистить, порезать на части. Приготовить сахарный сироп. Смешать в блендере и перебить все ингредиенты. Оставить настаиваться в течение 30 минут. Профильтровать, разлить по емкостям. Запас хранить в вакуумных пакетах в холодильнике.",
         composition: {
             Корень_имбиря: 150,
@@ -88,7 +88,7 @@ export const Products: productType[] = [
             }
         }
     }, {
-        name: "Basil Cordial",
+        name: "Базиликовый Кордиал",
         description: "Все ингредиенты пробить в блендере. Дать постоять 20 мин. Отфильтровать через супербэг 2 раза. Хранить в вакуумных пакетах.",
         composition: {
             Лимонный_сок: 500,
@@ -200,7 +200,7 @@ export const Products: productType[] = [
         id: "saganSoda",
         calculate: (val: number) => {
             return {
-                Саган_дайля: 5 * val,
+                Саган: 5 * val,
                 Кипяток: 1000 * val,
             }
         }

@@ -12,7 +12,7 @@ const SELECTED = "/selectedList"
 const PRODUCT_INFO = "/product/:id"
 const ADD_PRODUCT = "/add"
 const DONE = "/done"
-
+const HOME = "/home"
 export const Router = React.memo((props : any) => {
    
 
@@ -20,6 +20,7 @@ export const Router = React.memo((props : any) => {
         <>
             <Routes>
               <Route path={PRODUCT_LIST} element={<ProductList/>}></Route>
+              <Route path={HOME} element={<ProductList/>}/>
               <Route path={SELECTED} element={<Selected/>}></Route>
               <Route path={PRODUCT_INFO} element={<ProductCard/>}></Route>
                 <Route path={DONE} element={<DonePage/>}></Route>

@@ -27,7 +27,7 @@ export const ProductCard = () => {
                     setShow(false)
                 }else{
                     setShow(true)
-                    }}}>Description</button>
+                    }}}>Описание</button>
             {showDescription ? <p>{currentProduct?.description}</p> : null}
             <br />
             <button onClick={() => {
@@ -35,12 +35,13 @@ export const ProductCard = () => {
                     setShowComposition(false)
                 }else{
                     setShowComposition(true)
-                    }}}>Composition</button>
+                    }}}>Coстав</button>
             {showComposition ? current.map((el) => {return <><span>{el}</span><br /></>}) : null}
-            <h2>Calculate</h2>
-            <input type="text" placeholder="How much we need?" onChange={calculate}></input>
+            <h2>Расчитать</h2>
+            <input type="text" placeholder="Сколько готовим?" onChange={calculate}></input>
             <br />
             {Object.keys(calculated as {}).map((el : string,index:number) => {
+                console.log(Object.values(calculated as {})[index])
                 return (
                     <>
                     

@@ -3,7 +3,7 @@
  background-color: rgb(255, 255, 255);
  color: rgb(111, 110, 110);
  position: fixed;
- overflow-y: scroll;
+
   height: 100%;
   width: 100%;
 }

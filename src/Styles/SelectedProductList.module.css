@@ -1,11 +1,16 @@
 .selectedProductsContainer{
-  
+    position:relative;
     color: rgb(67, 67, 67);
     text-align: left;
     padding: 10px;
+    height: 90%;
+    overflow-y: scroll;
+
 }
+
 .status {
-    height: 1rem;
+    
+
     margin-bottom: 20px;
 }
 .readyOf{
@@ -33,7 +38,7 @@
     height: 20px;
 }
 .endShift{
-    position: fixed;
+    position:absolute;
     bottom: 5rem;
     left: calc(50% - 150px);
     width: 300px;
