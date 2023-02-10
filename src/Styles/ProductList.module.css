@@ -1,34 +1,25 @@
-.priductListPAge{
-    padding: 10px;
-  
+.priductListPAge {
+    padding: 5px;
+    height: calc(100% - 3rem);
 }
-.productListContainer{
-    position: fixed;
-    top: 3rem;
-    width: 100%;
-    font-size: x-large;
+.productListContainer {
     text-align: left;
-    color: rgb(93, 92, 92);
-}
-.productListContainer input{
+    font-size: x-large;
+    overflow-y: scroll;
     
 }
-.search{
-    font-size: large;
-    color: rgb(93, 92, 92);
-    position: fixed;
-    top: 5px;
-    left: 1%;
-    width: 96%;
-    height: 2rem;
-    border-radius: 5px;
-    border-style: 1px rgb(50, 49, 49);
-    border-width: thin;    
-
-}
 .element{
-    margin-bottom: 0.7rem;
+    margin-bottom: 10px;
 }
+.search{
+    width: 98%;
+    height: 2rem;
+    margin-bottom: 5px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: large;
+}
+
 .productListContainer {
     transform: translateX(80%);
     animation: side 0.6s forwards;

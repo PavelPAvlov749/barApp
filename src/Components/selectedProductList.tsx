@@ -42,7 +42,7 @@ export const Selected = () => {
                 <span className={styles.readyOf}>{readyProducts.length + " / " + products.length}</span>
                 <span className={styles.percent}>{(100 / products.length) *  Number(readyProducts.length.toFixed(2)) + "%"}</span>
             </section>
-          
+            <div className={styles.list}>
             {products.map((el : productType) => {
                
                 
@@ -62,10 +62,12 @@ export const Selected = () => {
                    </div>
                )
            })}
+            </div>
+           
           
-
-         
-             <button className={styles.endShift} onClick={endShift}  >Завершить смену</button>
+            {(100 / products.length) *  Number(readyProducts.length.toFixed(2)) === 100 ?
+           
+             <button className={styles.endShift} onClick={endShift}  >Завершить смену</button> : null}
         </section>
     )}else{
         return(
