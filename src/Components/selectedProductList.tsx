@@ -5,10 +5,7 @@ import nothung from "../Assets/nothing.png"
 import { productType } from "../ProductModel/productModel";
 import { NavLink, useNavigate } from "react-router-dom"
 import styles from "../Styles/SelectedProductList.module.css"
-import { product_actions, selectedType } from "../Redux/productReducer"
-import useLocalStorage from "use-local-storage"
-import { TelegramAPI } from "../BotAPI/AxiosConfig";
-import { strictEqual } from "assert";
+import { product_actions } from "../Redux/productReducer"
 
 
 export const Selected = () => {
@@ -32,7 +29,7 @@ export const Selected = () => {
         dispatch(product_actions.clearSelected())
         localStorage.clear()
         navigate("/done")
-        TelegramAPI.sendMessage()
+        
     }
     const clearSelected = () => {
         dispatch(product_actions.clear())
