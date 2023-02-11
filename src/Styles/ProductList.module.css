@@ -1,5 +1,5 @@
 .priductListPAge {
-    padding: 5px;
+    padding: 10px;
     height: calc(100% - 3rem);
 }
 .productListContainer {
@@ -9,7 +9,15 @@
     
 }
 .element{
+    width: 100%;
     margin-bottom: 10px;
+    
+}
+.element span {
+    
+    width: 85%;
+    margin: 0%;
+    display: inline-block;
 }
 .search{
     width: 98%;
@@ -35,8 +43,8 @@
     }
 }
 .checkBox{
-    position:absolute;
-    right: 25px;
+    /* position:relative; */
+    /* right: 25px; */
     width: 22px;
     height: 22px;
     vertical-align: middle;

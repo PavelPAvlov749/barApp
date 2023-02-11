@@ -1,8 +1,7 @@
 .selectedProductsContainer{
-    height: calc(100% - 3rem);
+    height: calc(100% - 4rem);
     font-size: x-large;
     padding: 5px;
-
 }
 
 .percent{
@@ -20,7 +19,8 @@
 .list {
     margin-top: 1.5rem;
     overflow-y: scroll;
-    height: calc(100% - 3rem);
+    height: calc(100% - 9rem);
+    position: relative;
     text-align: left;
 }
 .elemnt {
@@ -37,18 +37,23 @@
 }
 .elemnt span{
     display: inline-block;
-
     width: 90%;
 }
 a{
     text-decoration: none;
     color: rgb(87, 86, 86);
 }
-.endShift{
+.buttons{
     position: fixed;
-    bottom: 4rem;
-    width: 200px;
-    left: calc(50% - 100px);
+    bottom: 5rem;
+    width: 100%;
+    padding-left: 0%;
+}
+button{
+    margin-right: 3px;
+    width: 46%;
+    display: inline;
+    /* left: calc(50% - 100px); */
     height: 2rem;
     font-size: large;
     background-color: rgb(53, 53, 200);
@@ -56,57 +61,33 @@ a{
     border: none;
     border-radius: 5px;
 }
-/* .selectedProductsContainer{
-    position:relative;
-    color: rgb(67, 67, 67);
-    text-align: left;
-    padding: 10px;
-    height: 90%;
-    overflow-y: scroll;
-
+.noElements{
+    padding-top: 40%;
+}
+.noElements h1 {
+    font-size: 30px;
+    color: rgb(33, 33, 33);
+}
+.nothing{
+    /* background-color: aqua; */
+    width: 80px;
+    height: 80px;
 }
 
-.status {
-    
+.noElements {
+    transform: translateX(80%);
+    animation: side 0.6s forwards;
+    height: 100%;
+}
+@keyframes side {
+    0% {
+        transform: translateX(80%);
+    }
 
-    margin-bottom: 20px;
+    100% {
+        transform: translateX(0);
+    }
 }
-.readyOf{
-    position: fixed;
-    left: 10px;
-    top: 10px;
-}
-.percent{
-    position: fixed;
-    top : 10px;
-    right: 10px;
-}
-.elemnt{
-    margin-bottom: 0.7rem;
-}
-.selectedProductsContainer a {
-    text-decoration: none;
-    color: rgb(67, 67, 67);
-    font-size: x-large;
-}
-.selectedProductsContainer input {
-    position: fixed;
-    right: 10px;
-    width: 20px;
-    height: 20px;
-}
-.endShift{
-    position:absolute;
-    bottom: 5rem;
-    left: calc(50% - 150px);
-    width: 300px;
-    height: 2.5rem;
-    border: none;
-    border-radius: 5px;
-    background-color: rgb(159, 66, 66);
-    color: white;
-    font-size: large;
-} */
 
 .selectedProductsContainer {
     transform: translateX(80%);

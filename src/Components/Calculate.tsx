@@ -36,7 +36,18 @@ export const ProductCard = () => {
                 }else{
                     setShowComposition(true)
                     }}}>Coстав</button>
-            {showComposition ? current.map((el) => {return <><span>{el}</span><br /></>}) : null}
+            {/* {showComposition ? current.map((el) => {return <><span>{el}</span><br /></>}) : null} */}
+            {showComposition ? Object.keys(currentProduct?.composition as {}).map((el : string,index:number) => {
+                console.log(Object.values(calculated as {})[index])
+                return (
+                    <>
+                    <span className={styles.result}>{el.includes("_") ? el.split("_")[0] + " " + el.split("_")[1] : 
+                    el + " : " + Object.values(currentProduct?.composition as {})[index]}</span>
+               
+                    <br />
+                    </>
+                )
+            }) : null}
             <h2>Расчитать</h2>
             <input type="text" placeholder="Сколько готовим?" onChange={calculate}></input>
             <br />

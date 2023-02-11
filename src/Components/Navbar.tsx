@@ -11,24 +11,26 @@ export const Navbar = React.memo(() => {
     return (
         <section className={style.navbarContainer}>
             <ul>
+                
                 <li>
-                    <NavLink to="home">
-                        <img src={home} alt="" />
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="productList">
+                    <NavLink className={style.nav} to="productList">
                         <img src={document} alt="" />
+                        
+                        <span>Список</span>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="selectedList">
+                    <NavLink className={style.nav} to="selectedList">
                         <img src={list} alt="" />
+                        
+                        <span>В работе</span>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="newProduct">
+                    <NavLink className={style.nav} to="newProduct">
                         <img src={add} alt="" />
+                        
+                        <span>Добавить</span>
                     </NavLink>
                 </li>
             </ul>

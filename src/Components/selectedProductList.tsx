@@ -14,14 +14,14 @@ import { strictEqual } from "assert";
 export const Selected = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const products = useSelector((state : Global_state_type) => state.prdouctReducer.selected)
     useEffect(() => {
         let item = localStorage.getItem("products")
         if(item){
             dispatch(product_actions.setDelected(JSON.parse(item)))
         }
-
     },[])
-    const products = useSelector((state : Global_state_type) => state.prdouctReducer.selected)
+    // const products = useSelector((state : Global_state_type) => state.prdouctReducer.selected)
     const readyProducts = useSelector((state : Global_state_type ) => state.prdouctReducer.ready)
     let onClickHandler = (el : productType) => {
         dispatch(product_actions.addToReady(el))
@@ -34,7 +34,11 @@ export const Selected = () => {
         navigate("/done")
         TelegramAPI.sendMessage()
     }
-
+    const clearSelected = () => {
+        dispatch(product_actions.clear())
+        dispatch(product_actions.clearSelected())
+        localStorage.clear()
+    }
     if(products.length > 0){
     return (
         <section className={styles.selectedProductsContainer}>
@@ -55,26 +59,25 @@ export const Selected = () => {
                        if(readyProducts.length <= products.length){
                            onClickHandler(el)
                        }
-                       
                    }}/>
                    <br />
-                  
                    </div>
                )
            })}
             </div>
-           
-          
-            {(100 / products.length) *  Number(readyProducts.length.toFixed(2)) === 100 ?
-           
-             <button className={styles.endShift} onClick={endShift}  >Завершить смену</button> : null}
+            <div className={styles.buttons}>
+            <button  onClick={clearSelected}>Очистить</button>
+             <button disabled={!((100 / products.length) *  Number(readyProducts.length.toFixed(2)) === 100) } 
+             className={styles.endShift} onClick={endShift}  >Завершить</button>  
+            </div>
+         
         </section>
     )}else{
         return(
-            <section>
+            <section className={styles.noElements}>
                 
-                <h1>No elements</h1>
-                <img src={nothung}></img>
+                <h1>Нет элементов</h1>
+                <img className={styles.nothing} src={nothung}></img>
             </section>
         )
     }

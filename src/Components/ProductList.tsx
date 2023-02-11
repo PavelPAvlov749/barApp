@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import useLocalStorage from "use-local-storage";
 import { productType } from "../ProductModel/productModel";
 import { product_actions } from "../Redux/productReducer";
@@ -54,12 +55,15 @@ export const ProductList = () => {
                 }): products.map((el: productType) => {
                     return (
                         <div className={styles.element}>
+                        
+                              <NavLink to={"/product/id=" + el.id}>
                             <span>{el.name.includes("_") ? el.name.split("_")[0] + " " + el.name.split("_")[1] : el.name  }</span>
+                            </NavLink>
                             <input className={styles.checkBox} type="checkbox" onChange={() => {
                                 onChange(el)
                             }}></input>
                             <br />
-
+                          
                         </div>
                     )})}
             </section>
