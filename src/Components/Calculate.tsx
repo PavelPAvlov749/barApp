@@ -18,6 +18,9 @@ export const ProductCard = () => {
         setValue(e.currentTarget.value)
     }
     let current = JSON.stringify(currentProduct?.composition).split(",")
+    const onError = () => {
+        console.log("efwef")
+    }
     return (
         <section className={styles.calculateContainer}>
 
@@ -49,7 +52,11 @@ export const ProductCard = () => {
                 )
             }) : null}
             <h2>Расчитать</h2>
-            <input type="text" placeholder="Сколько готовим?" onChange={calculate}></input>
+            <form >
+            <input type="number" onError={onError} placeholder="Сколько готовим?"  onChange={calculate}></input>
+            </form>
+
+         
             <br />
             {Object.keys(calculated as {}).map((el : string,index:number) => {
                 console.log(Object.values(calculated as {})[index])

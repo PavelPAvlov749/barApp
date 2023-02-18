@@ -1,7 +1,16 @@
-.selectedProductsContainer{
-    height: calc(100% - 4rem);
+ .selectedProductsContainer{
+    
     font-size: x-large;
     padding: 5px;
+
+    overflow-y: scroll;
+
+    height: calc(100vh - 5rem);
+    
+    transform: translateX(80%);
+    animation: side 0.6s forwards;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .percent{
@@ -10,6 +19,7 @@
     font-size: large;
     right: 10px;
 }
+
 .readyOf{
     position: fixed;
     top: 3px;
@@ -19,12 +29,13 @@
 .list {
     margin-top: 1.5rem;
     overflow-y: scroll;
-    height: calc(100% - 9rem);
+    height: calc(100% - 5rem);
     position: relative;
+
     text-align: left;
 }
 .elemnt {
-    width: 100%;
+    width: calc(100% - 5px);
     margin-bottom: 5px;
 }
 .list input {
@@ -36,6 +47,7 @@
     
 }
 .elemnt span{
+    margin-left: 5px;
     display: inline-block;
     width: 90%;
 }
@@ -43,17 +55,20 @@ a{
     text-decoration: none;
     color: rgb(87, 86, 86);
 }
+
+
 .buttons{
     position: fixed;
-    bottom: 5rem;
+    left: auto;
+    bottom: 3rem;
     width: 100%;
     padding-left: 0%;
 }
 button{
-    margin-right: 3px;
-    width: 46%;
+    margin-right: 5px;
+    width: 150px;
     display: inline;
-    /* left: calc(50% - 100px); */
+
     height: 2rem;
     font-size: large;
     background-color: rgb(53, 53, 200);
@@ -69,7 +84,7 @@ button{
     color: rgb(33, 33, 33);
 }
 .nothing{
-    /* background-color: aqua; */
+
     width: 80px;
     height: 80px;
 }
@@ -89,11 +104,7 @@ button{
     }
 }
 
-.selectedProductsContainer {
-    transform: translateX(80%);
-    animation: side 0.6s forwards;
-    height: 100%;
-}
+
 @keyframes side {
     0% {
         transform: translateX(80%);
@@ -102,4 +113,4 @@ button{
     100% {
         transform: translateX(0);
     }
-}
+} 
