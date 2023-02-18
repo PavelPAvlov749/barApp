@@ -55,11 +55,17 @@ export const NewProduct = () => {
             <h1>Add new element</h1>
             <input type="text" placeholder="Enter the name" style={{ "display": "inline" }} onChange={onNameInput}></input>
             <br />
+            <div className={styles.inputList}>
             {state}
+            </div>
+          
             <br />
+            <div className={styles.buttons}>
             <button onClick={addInput}>+</button>
-            <br />
+            
             <button onClick={pushElementIntoDB}>Add</button>
+            </div>
+   
         </div>
     )
 }
